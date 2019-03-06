@@ -1,4 +1,9 @@
 import React from "react"
+import {
+  FormWrapperContext,
+  FormWrapperProvider,
+  FormWrapperConsumer
+} from "./context"
 import "./form.css"
 
 class FormWrapper extends React.Component {
@@ -29,11 +34,14 @@ class FormWrapper extends React.Component {
 
   render() {
     return (
-      <form onChange={this.onChange} onSubmit={this.onSubmit}>
-        {this.props.children}
-      </form>
+      <FormWrapperProvider value={{ onChange: this.onChange }}>
+        <form onChange={this.onChange} onSubmit={this.onSubmit}>
+          {this.props.children}
+        </form>
+      </FormWrapperProvider>
     )
   }
 }
 
+export { FormWrapperContext, FormWrapperConsumer }
 export default FormWrapper
