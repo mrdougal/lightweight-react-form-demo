@@ -1,8 +1,9 @@
 import React from "react"
 import FormWrapper from "../form-wrapper"
 
-const Login = () => (
+const SimpleForm = () => (
   <FormWrapper>
+    <h1>Simple form</h1>
     <fieldset>
       <label htmlFor="email">Email</label>
       <input type="email" id="email" name="email" />
@@ -17,4 +18,4 @@ const Login = () => (
   </FormWrapper>
 )
 
-export default Login
+export default SimpleForm

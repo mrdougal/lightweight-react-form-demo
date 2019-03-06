@@ -29,6 +29,8 @@ const ControlledInputs = () => (
       {({ onChange }) => (
         <React.Fragment>
           <h1>Controlled inputs</h1>
+          <p>First name has a custom onChange event</p>
+
           <fieldset>
             <FormInput
               name="first_name"

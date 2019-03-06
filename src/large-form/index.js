@@ -13,7 +13,9 @@ const generateFields = size => {
 
 const LargeForm = () => (
   <FormWrapper>
-    <h1>Lots of fields</h1>
+    <h1>Large Form</h1>
+    <p>With 100 fields</p>
+
     <fieldset>
       <div className="largeForm--fields">
         {generateFields(100).map(field => (
