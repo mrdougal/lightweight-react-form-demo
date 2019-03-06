@@ -1,0 +1,49 @@
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1em 0;
+}
+
+label {
+  display: block;
+  font-weight: normal;
+  font-size: 0.8em;
+  padding: 1em 0 0.5em 0;
+}
+
+input,
+select,
+button {
+  font-size: 1em;
+  padding: 0.5em;
+  border: none;
+  font-weight: bolder;
+  background-color: transparent;
+  width: 100%;
+}
+
+select {
+  margin: 0.5em 0em;
+}
+
+input {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+button[type="submit"] {
+  width: 100%;
+  font-weight: bold;
+  color: #005e68;
+}
+
+input:disabled,
+select:disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  color: #008c96;
+}
