@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+command -v node >/dev/null 2>&1 || {
+  echo "Node not found. Consider installing it via NVM (https://github.com/creationix/nvm)."
+  exit 1
+}
+
+command -v yarn >/dev/null 2>&1 || {
+  echo "Yarn not found. You can install it with \`npm install yarn --global\`."
+  exit 1
+}
+
+yarn install
+
+cat <<BANNER
+
+==> You're good to go
+
+    Start a local server with:
+
+      bin/start
+
+BANNER
+
