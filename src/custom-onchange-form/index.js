@@ -23,12 +23,12 @@ const FormInput = ({ name, label, onChange = defaultOnChange }) => (
   </React.Fragment>
 )
 
-const ControlledInputs = () => (
+const CustomOnChangeForm = () => (
   <FormWrapper>
     <FormWrapperConsumer>
       {({ onChange }) => (
         <React.Fragment>
-          <h1>Controlled inputs</h1>
+          <h1>Custom onChange event</h1>
           <p>First name has a custom onChange event</p>
 
           <fieldset>
@@ -49,4 +49,4 @@ const ControlledInputs = () => (
   </FormWrapper>
 )
 
-export default ControlledInputs
+export default CustomOnChangeForm

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom"
 import SimpleForm from "./simple-form"
 import LargeForm from "./large-form"
-import ControlledInputs from "./controlled-inputs"
+import CustomOnChangeForm from "./custom-onchange-form"
 import "./app.css"
 
 const MenuLink = ({ to, exact = false, children }) => (
@@ -25,7 +25,7 @@ const Navigation = () => (
         Simple Form
       </MenuLink>
       <MenuLink to="/large-form">Large Form</MenuLink>
-      <MenuLink to="/controlled-inputs">Controlled Inputs</MenuLink>
+      <MenuLink to="/custom-onchange">Custom onChange</MenuLink>
     </ul>
   </menu>
 )
@@ -37,7 +37,7 @@ const App = () => (
       <main>
         <Switch>
           <Route path="/large-form" component={LargeForm} />
-          <Route path="/controlled-inputs" component={ControlledInputs} />
+          <Route path="/custom-onchange" component={CustomOnChangeForm} />
           <SimpleForm />
         </Switch>
       </main>
