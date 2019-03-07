@@ -14,8 +14,8 @@ const WithValidationsForm = () => (
         <React.Fragment>
           <h1>With validations form</h1>
           <p>
-            The inputs are marked as <pre>required</pre> and we hand the
-            validaton off to the browser
+            Validation is handled by the "checkValidity" method provided by the
+            browser
           </p>
 
           <fieldset>
