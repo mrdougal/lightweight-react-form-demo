@@ -9,10 +9,12 @@ import "./form.css"
 class FormWrapper extends React.Component {
   constructor(props) {
     super(props)
+    this.form = React.createRef()
     this.state = {
       loading: false,
       errors: null,
-      values: {}
+      values: {},
+      valid: false
     }
 
     this.onChange = this.onChange.bind(this)
@@ -22,9 +24,10 @@ class FormWrapper extends React.Component {
   onChange(event) {
     const { name, value } = event.target
     const { values } = this.state
+    const valid = this.validate()
 
     console.info("form change", { name, value })
-    this.setState({ values: { ...values, [name]: value } })
+    this.setState({ valid, values: { ...values, [name]: value } })
   }
 
   onSubmit(event) {
@@ -32,10 +35,23 @@ class FormWrapper extends React.Component {
     console.info("form submit", this.state.values)
   }
 
+  validate() {
+    const { current } = this.form
+
+    if (!current.checkValidity) {
+      // in case the browser doesn't support checkValidity we return true. Otherwise users won't be able to submit at all
+      return true
+    }
+
+    return current.checkValidity()
+  }
+
   render() {
     return (
-      <FormWrapperProvider value={{ onChange: this.onChange }}>
-        <form onChange={this.onChange} onSubmit={this.onSubmit}>
+      <FormWrapperProvider
+        value={{ onChange: this.onChange, valid: this.state.valid }}
+      >
+        <form onChange={this.onChange} onSubmit={this.onSubmit} ref={this.form}>
           {this.props.children}
         </form>
       </FormWrapperProvider>

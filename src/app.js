@@ -8,6 +8,7 @@ import {
 import SimpleForm from "./simple-form"
 import LargeForm from "./large-form"
 import CustomOnChangeForm from "./custom-onchange-form"
+import WithValidations from "./with-validations-form"
 import "./app.css"
 
 const MenuLink = ({ to, exact = false, children }) => (
@@ -26,6 +27,7 @@ const Navigation = () => (
       </MenuLink>
       <MenuLink to="/large-form">Large Form</MenuLink>
       <MenuLink to="/custom-onchange">Custom onChange</MenuLink>
+      <MenuLink to="/with-validations">Validations</MenuLink>
     </ul>
   </menu>
 )
@@ -38,6 +40,7 @@ const App = () => (
         <Switch>
           <Route path="/large-form" component={LargeForm} />
           <Route path="/custom-onchange" component={CustomOnChangeForm} />
+          <Route path="/with-validations" component={WithValidations} />
           <SimpleForm />
         </Switch>
       </main>
