@@ -19,6 +19,6 @@ To start a local server:
 
 ## TODO, exercises for the reader
 
-- Validations, using the browsers [checkValidity function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/checkValidity)
+- ~~Validations, using the browsers [checkValidity function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/checkValidity)~~
 
 - Controlled inputs, via render props? (Context isn't suited to high frequency updates)
