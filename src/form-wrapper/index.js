@@ -19,6 +19,7 @@ class FormWrapper extends React.Component {
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.getValues = this.getValues.bind(this)
   }
 
   onChange(event) {
@@ -46,13 +47,17 @@ class FormWrapper extends React.Component {
     return current.checkValidity()
   }
 
+  getValues() {
+    return this.state.values
+  }
+
   render() {
     const { render, children } = this.props
-    const { valid, values } = this.state
-    const { onChange } = this
+    const { valid, values, loading } = this.state
+    const { onChange, getValues } = this
 
     return (
-      <FormWrapperProvider value={{ onChange, valid }}>
+      <FormWrapperProvider value={{ onChange, valid, loading, getValues }}>
         <form onChange={onChange} onSubmit={this.onSubmit} ref={this.form}>
           {render
             ? render({

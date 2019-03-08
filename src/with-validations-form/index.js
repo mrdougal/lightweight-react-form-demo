@@ -10,7 +10,7 @@ const Required = () => (
 const WithValidationsForm = () => (
   <FormWrapper>
     <FormWrapperConsumer>
-      {({ valid }) => (
+      {({ valid, getValues }) => (
         <React.Fragment>
           <h1>With validations form</h1>
           <p>
@@ -35,6 +35,11 @@ const WithValidationsForm = () => (
               Log me in
             </button>
           </fieldset>
+
+          <details>
+            <summary>State</summary>
+            <pre>{JSON.stringify({ valid, values: getValues() }, null, 3)}</pre>
+          </details>
         </React.Fragment>
       )}
     </FormWrapperConsumer>

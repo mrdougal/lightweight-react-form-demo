@@ -26,7 +26,7 @@ const FormInput = ({ name, label, onChange = defaultOnChange }) => (
 const CustomOnChangeForm = () => (
   <FormWrapper>
     <FormWrapperConsumer>
-      {({ onChange }) => (
+      {({ onChange, getValues }) => (
         <React.Fragment>
           <h1>Custom onChange event</h1>
           <p>First name has a custom onChange event</p>
@@ -43,6 +43,11 @@ const CustomOnChangeForm = () => (
           <fieldset>
             <button type="submit">Save</button>
           </fieldset>
+
+          <details>
+            <summary>State</summary>
+            <pre>{JSON.stringify(getValues(), null, 3)}</pre>
+          </details>
         </React.Fragment>
       )}
     </FormWrapperConsumer>
