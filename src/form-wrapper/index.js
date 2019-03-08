@@ -13,7 +13,7 @@ class FormWrapper extends React.Component {
     this.state = {
       loading: false,
       errors: null,
-      values: {},
+      values: props.defaultValues || {},
       valid: false
     }
 
@@ -47,12 +47,20 @@ class FormWrapper extends React.Component {
   }
 
   render() {
+    const { render, children } = this.props
+    const { valid, values } = this.state
+    const { onChange } = this
+
     return (
-      <FormWrapperProvider
-        value={{ onChange: this.onChange, valid: this.state.valid }}
-      >
-        <form onChange={this.onChange} onSubmit={this.onSubmit} ref={this.form}>
-          {this.props.children}
+      <FormWrapperProvider value={{ onChange, valid }}>
+        <form onChange={onChange} onSubmit={this.onSubmit} ref={this.form}>
+          {render
+            ? render({
+                valid,
+                values,
+                onChange
+              })
+            : children}
         </form>
       </FormWrapperProvider>
     )
